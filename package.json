@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "DATABASE_URL='prisma+postgres://accelerate.prisma-data.net/?api_key=API_KEY' next build",
-    "start": "next start",
+    "start": "DATABASE_URL='prisma+postgres://accelerate.prisma-data.net/?api_key=API_KEY next start",
     "lint": "next lint",
     "postinstall": "DATABASE_URL='prisma+postgres://accelerate.prisma-data.net/?api_key=API_KEY' npx prisma generate --no-engine"
   },
