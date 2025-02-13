@@ -5,7 +5,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  if (!process.env.DATABASE_URL || process.env.DATABASE_URL === "postgresql://user:password@localhost:5432/db") {
+  if (!process.env.DATABASE_URL || process.env.DATABASE_URL === "prisma+postgres://accelerate.prisma-data.net/?api_key=API_KEY") {
     redirect("/setup");
   }
 

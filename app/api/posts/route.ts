@@ -1,9 +1,12 @@
-export const dynamic = "force-dynamic";
-
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
+
+  if (!process.env.DATABASE_URL || process.env.DATABASE_URL === "prisma+postgres://accelerate.prisma-data.net/?api_key=API_KEY") {
+    return NextResponse.json({ posts: {}, totalPages: 0 });
+  }
+
   const url = new URL(request.url);
   const page = parseInt(url.searchParams.get("page") || "1");
   const postsPerPage = 5;
